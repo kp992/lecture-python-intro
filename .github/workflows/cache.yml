@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - cache_test_1
+      - main
 jobs:
   tests:
     runs-on: ubuntu-latest
