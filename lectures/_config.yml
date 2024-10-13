@@ -28,7 +28,7 @@ html:
   baseurl: https://intro.quantecon.org/
 
 bibtex_bibfiles:
-  - _static/quant-econ.bib
+  - quant-econ.bib
 
 latex:
   latex_documents:
