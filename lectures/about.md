@@ -7,6 +7,7 @@ This lecture series introduces quantitative economics using elementary
 mathematics and statistics plus computer code written in
 [Python](https://www.python.org/).  
 
+
 The lectures emphasize simulation and visualization through code as a way to
 convey ideas, rather than focusing on mathematical details.
 
