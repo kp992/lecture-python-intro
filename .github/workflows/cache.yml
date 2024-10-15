@@ -2,6 +2,7 @@ name: Build Cache [using jupyter-book]
 on:
   push:
     branches:
+      - cache_test_1
       - main
 jobs:
   tests:
