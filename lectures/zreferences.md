@@ -12,6 +12,6 @@ kernelspec:
 (references)=
 # References
 
-```{bibliography} _static/quant-econ.bib
+```{bibliography} quant-econ.bib
 ```
 
