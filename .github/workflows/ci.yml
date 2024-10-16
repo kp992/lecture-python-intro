@@ -15,22 +15,22 @@ jobs:
           python-version: "3.11"
           environment-file: environment.yml
           activate-environment: quantecon
-      - name: Graphics Support #TODO: Review if graphviz is needed
-        run: |
-          sudo apt-get -qq update && sudo apt-get install -y graphviz
-      - name: Install latex dependencies
-        run: |
-          sudo apt-get -qq update
-          sudo apt-get install -y     \
-            texlive-latex-recommended \
-            texlive-latex-extra       \
-            texlive-fonts-recommended \
-            texlive-fonts-extra       \
-            texlive-xetex             \
-            latexmk                   \
-            xindy                     \
-            dvipng                    \
-            cm-super
+      # - name: Graphics Support #TODO: Review if graphviz is needed
+      #   run: |
+      #     sudo apt-get -qq update && sudo apt-get install -y graphviz
+      # - name: Install latex dependencies
+      #   run: |
+      #     sudo apt-get -qq update
+      #     sudo apt-get install -y     \
+      #       texlive-latex-recommended \
+      #       texlive-latex-extra       \
+      #       texlive-fonts-recommended \
+      #       texlive-fonts-extra       \
+      #       texlive-xetex             \
+      #       latexmk                   \
+      #       xindy                     \
+      #       dvipng                    \
+      #       cm-super
       - name: Display Conda Environment Versions
         shell: bash -l {0}
         run: conda list
@@ -69,20 +69,24 @@ jobs:
       - name: Build HTML
         shell: bash -l {0}
         run: |
-          jb build lectures --path-output ./ -nW --keep-going
+          ls
+          cd _build
+          ls
+          cd ..
+
       - name: Upload Execution Reports (HTML)
         uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: execution-reports
           path: _build/html/reports
-      - name: Preview Deploy to Netlify
-        uses: nwtgck/actions-netlify@v3.0
-        with:
-          publish-dir: '_build/html/'
-          production-branch: main
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Preview Deploy from GitHub Actions"
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      # - name: Preview Deploy to Netlify
+      #   uses: nwtgck/actions-netlify@v3.0
+      #   with:
+      #     publish-dir: '_build/html/'
+      #     production-branch: main
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     deploy-message: "Preview Deploy from GitHub Actions"
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
