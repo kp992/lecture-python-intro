@@ -14,6 +14,7 @@ kernelspec:
 
 # Business Cycles
 
+
 ## Overview
 
 In this lecture we review some empirical aspects of business cycles.
@@ -23,6 +24,7 @@ Business cycles are fluctuations in economic activity over time.
 These include expansions (also called booms) and contractions (also called recessions).
 
 For our study, we will use economic indicators from the [World Bank](https://documents.worldbank.org/en/publication/documents-reports/api) and [FRED](https://fred.stlouisfed.org/).
+
 
 In addition to the packages already installed by Anaconda, this lecture requires
 
